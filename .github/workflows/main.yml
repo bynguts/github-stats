@@ -57,6 +57,21 @@ jobs:
         git commit -m 'Update generated files' || true
         git push --set-upstream origin generated
 
+    - name: Render pixel stats panel
+      # Draws the numbers as a dithered panel matching the profile's boot log.
+      # Runs outside the checkout so nothing lands on the generated branch.
+      if: ${{ !cancelled() }}
+      run: |
+        theme="$RUNNER_TEMP/theme"
+        mkdir -p "$theme/fonts"
+        git show master:theme/render_card.py > "$theme/render_card.py"
+        for f in Silkscreen-Regular Silkscreen-Bold; do
+          curl -sfL -o "$theme/fonts/$f.ttf" "https://github.com/google/fonts/raw/main/ofl/silkscreen/$f.ttf"
+        done
+        python3 -m venv "$RUNNER_TEMP/venv"
+        "$RUNNER_TEMP/venv/bin/pip" install --quiet pillow numpy
+        "$RUNNER_TEMP/venv/bin/python" "$theme/render_card.py" overview.svg languages.svg "$RUNNER_TEMP/activity.png"
+
     - name: Publish images to profile repo
       # This repo is private, so the profile README can't load images from
       # it. Mirror them to a single-commit `stats` branch of the public repo.
@@ -66,9 +81,10 @@ jobs:
         set +x
         out="$(mktemp -d)"
         cp overview.svg languages.svg "$out/"
+        if [ -f "$RUNNER_TEMP/activity.png" ]; then cp "$RUNNER_TEMP/activity.png" "$out/"; fi
         cd "$out"
         git init -q -b stats
-        git add overview.svg languages.svg
+        git add .
         git commit -q -m 'Update generated stats images'
         git push -f "https://x-access-token:${ACCESS_TOKEN}@github.com/bynguts/bynguts.git" stats
       env:
