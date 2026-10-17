@@ -95,7 +95,6 @@ idx[0, :] = idx[-1, :] = CRIMSON
 idx[:, 0] = idx[:, -1] = CRIMSON
 idx[1:14, 1:-1] = dither(np.tile(np.clip(1.0 - np.arange(W - 2) / (W * 0.9), 0, 1) * 0.5, (13, 1)))
 text(idx, "BYNGUTS.STATS", 8, 4, BONE, bold=True)
-text(idx, "TTY1  //  SYNCED DAILY", W - width("TTY1  //  SYNCED DAILY") - 8, 4, BRIGHT)
 
 MID = 222
 LY, STEP = 22, 15
