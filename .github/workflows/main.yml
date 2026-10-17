@@ -56,3 +56,18 @@ jobs:
         # Force the build to succeed, even if no files were changed
         git commit -m 'Update generated files' || true
         git push --set-upstream origin generated
+
+    - name: Publish images to profile repo
+      # This repo is private, so the profile README can't load images from
+      # it. Mirror them to a single-commit `stats` branch of the public repo.
+      run: |
+        set +x
+        out="$(mktemp -d)"
+        cp overview.svg languages.svg "$out/"
+        cd "$out"
+        git init -q -b stats
+        git add overview.svg languages.svg
+        git commit -q -m 'Update generated stats images'
+        git push -f "https://x-access-token:${ACCESS_TOKEN}@github.com/bynguts/bynguts.git" stats
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
