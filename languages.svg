@@ -89,31 +89,31 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
 <span class="progress">
 <span style="
   background-color: #00ADD8; 
-  width: 51.613%;
+  width: 51.572%;
 " class="progress-item"></span><span style="
   background-color: #e34c26; 
-  width: 12.253%;
+  width: 12.243%;
 " class="progress-item"></span><span style="
   background-color: #f1e05a; 
-  width: 9.121%;
+  width: 9.114%;
 " class="progress-item"></span><span style="
   background-color: #3572A5; 
-  width: 9.053%;
+  width: 9.105%;
 " class="progress-item"></span><span style="
   background-color: #3178c6; 
-  width: 5.961%;
+  width: 5.976%;
 " class="progress-item"></span><span style="
   background-color: #ff3e00; 
-  width: 5.648%;
+  width: 5.643%;
 " class="progress-item"></span><span style="
   background-color: #4F5D95; 
-  width: 3.215%;
+  width: 3.213%;
 " class="progress-item"></span><span style="
   background-color: #663399; 
-  width: 2.064%;
+  width: 2.063%;
 " class="progress-item"></span><span style="
   background-color: #89e051; 
-  width: 0.653%;
+  width: 0.652%;
 " class="progress-item"></span><span style="
   background-color: #ec915c; 
   width: 0.298%;
@@ -158,7 +158,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">Go</span>
-  <span class="percent">51.61%</span>
+  <span class="percent">51.57%</span>
 </li>
 <li style="animation-delay: 300ms;">
   <svg 
@@ -174,7 +174,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">HTML</span>
-  <span class="percent">12.25%</span>
+  <span class="percent">12.24%</span>
 </li>
 <li style="animation-delay: 450ms;">
   <svg 
@@ -190,7 +190,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">JavaScript</span>
-  <span class="percent">9.12%</span>
+  <span class="percent">9.11%</span>
 </li>
 <li style="animation-delay: 600ms;">
   <svg 
@@ -206,7 +206,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">Python</span>
-  <span class="percent">9.05%</span>
+  <span class="percent">9.11%</span>
 </li>
 <li style="animation-delay: 750ms;">
   <svg 
@@ -222,7 +222,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">TypeScript</span>
-  <span class="percent">5.96%</span>
+  <span class="percent">5.98%</span>
 </li>
 <li style="animation-delay: 900ms;">
   <svg 
@@ -238,7 +238,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">Svelte</span>
-  <span class="percent">5.65%</span>
+  <span class="percent">5.64%</span>
 </li>
 <li style="animation-delay: 1050ms;">
   <svg 
@@ -254,7 +254,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">PHP</span>
-  <span class="percent">3.22%</span>
+  <span class="percent">3.21%</span>
 </li>
 <li style="animation-delay: 1200ms;">
   <svg 
