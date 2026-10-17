@@ -17,7 +17,7 @@ from PIL import Image, ImageDraw, ImageFont
 FONTS = Path(__file__).parent / "fonts"
 OVERVIEW, LANGUAGES, OUT = (Path(p) for p in sys.argv[1:4])
 
-W, H = 450, 146
+W, H = 450, 128
 SCALE = 2
 TOP_LANGS = 7
 
@@ -86,42 +86,47 @@ langs = re.findall(
 )
 langs = [(name, float(p)) for name, p in langs][:TOP_LANGS]
 
-# --- panel (same chrome as boot.py) ----------------------------------------
+# --- panels (same chrome as boot.py) ---------------------------------------
 
-yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
-glow = np.clip(1.0 - np.sqrt(((xx - W) / 260.0) ** 2 + (yy / 150.0) ** 2), 0, 1) ** 2 * 0.22
-idx = dither(glow)
-idx[0, :] = idx[-1, :] = CRIMSON
-idx[:, 0] = idx[:, -1] = CRIMSON
-idx[1:14, 1:-1] = dither(np.tile(np.clip(1.0 - np.arange(W - 2) / (W * 0.9), 0, 1) * 0.5, (13, 1)))
-text(idx, "BYNGUTS.STATS", 8, 4, BONE, bold=True)
-
-MID = 222
+GAP = 8
+BOX = (W - GAP) // 2
 LY, STEP = 22, 15
+SPAN = (TOP_LANGS - 1) * STEP  # both boxes spread their rows over this height
+
+
+def box(x0, title):
+    """Framed panel with a glow and dithered title bar, like the boot log."""
+    yy, xx = np.mgrid[0:H, 0:BOX].astype(np.float32)
+    glow = np.clip(1.0 - np.sqrt(((xx - BOX) / 200.0) ** 2 + (yy / 150.0) ** 2), 0, 1) ** 2 * 0.22
+    panel = dither(glow)
+    panel[0, :] = panel[-1, :] = CRIMSON
+    panel[:, 0] = panel[:, -1] = CRIMSON
+    panel[1:14, 1:-1] = dither(np.tile(np.clip(1.0 - np.arange(BOX - 2) / (BOX * 0.9), 0, 1) * 0.5, (13, 1)))
+    text(panel, title, 8, 4, BONE, bold=True)
+    idx[:, x0 : x0 + BOX] = panel
+
+
+idx = np.zeros((H, W), np.uint8)
 
 # left: overview
-text(idx, "// OVERVIEW", 10, LY, CRIMSON)
+box(0, "BYNGUTS.STATS")
 for i, (label, value) in enumerate(zip(LABELS, values)):
-    y = LY + 15 + i * STEP
+    y = LY + round(i * SPAN / (len(LABELS) - 1))
     x = text(idx, label, 10, y, BONE)
-    vx = MID - 10 - width(value)
+    vx = BOX - 10 - width(value)
     leader(idx, y, x, vx)
     text(idx, value, vx, y, BRIGHT)
 
-# dithered divider
-col = dither(np.tile(np.linspace(0.45, 0.05, H - 28)[:, None], (1, 2)))
-idx[22 : H - 6, MID : MID + 2] = col
-
 # right: languages, each bar scaled to the largest
-RX = MID + 12
-text(idx, "// LANGUAGES", RX, LY, CRIMSON)
+RX = W - BOX
+box(RX, "BYNGUTS.LANGUAGES")
 name_w = max(width(n.upper()) for n, _ in langs) + 8
 pct_w = width("00.0%")
-bar_x0, bar_x1 = RX + name_w, W - 12 - pct_w - 6
+bar_x0, bar_x1 = RX + 10 + name_w, W - 10 - pct_w - 6
 top = langs[0][1] if langs else 1.0
 for i, (name, pct) in enumerate(langs):
-    y = LY + 15 + i * STEP
-    text(idx, name.upper(), RX, y, BONE)
+    y = LY + i * STEP
+    text(idx, name.upper(), RX + 10, y, BONE)
     full = bar_x1 - bar_x0
     n = max(2, int(full * pct / top))
     idx[y + 6, bar_x0:bar_x1] = BLOOD  # track
@@ -129,7 +134,7 @@ for i, (name, pct) in enumerate(langs):
     ramp = np.linspace(0.35, 1.0, n) * (0.6 + 0.4 * (1 - i / TOP_LANGS))
     idx[y : y + 7, bar_x0 : bar_x0 + n] = dither(np.tile(ramp, (7, 1)))
     s = f"{pct:.1f}%"
-    text(idx, s, W - 12 - width(s), y, BRIGHT)
+    text(idx, s, W - 10 - width(s), y, BRIGHT)
 
 im = Image.fromarray(PALETTE[idx], "RGB").resize((W * SCALE, H * SCALE), Image.NEAREST)
 pal = Image.new("P", (1, 1))
