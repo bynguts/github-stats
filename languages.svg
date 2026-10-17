@@ -98,10 +98,10 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
   width: 9.121%;
 " class="progress-item"></span><span style="
   background-color: #3572A5; 
-  width: 9.024%;
+  width: 9.053%;
 " class="progress-item"></span><span style="
   background-color: #3178c6; 
-  width: 5.990%;
+  width: 5.961%;
 " class="progress-item"></span><span style="
   background-color: #ff3e00; 
   width: 5.648%;
@@ -206,7 +206,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">Python</span>
-  <span class="percent">9.02%</span>
+  <span class="percent">9.05%</span>
 </li>
 <li style="animation-delay: 750ms;">
   <svg 
@@ -222,7 +222,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">TypeScript</span>
-  <span class="percent">5.99%</span>
+  <span class="percent">5.96%</span>
 </li>
 <li style="animation-delay: 900ms;">
   <svg 
