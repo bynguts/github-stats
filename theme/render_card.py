@@ -17,7 +17,7 @@ from PIL import Image, ImageDraw, ImageFont
 FONTS = Path(__file__).parent / "fonts"
 OVERVIEW, LANGUAGES, OUT = (Path(p) for p in sys.argv[1:4])
 
-W, H = 450, 128
+W, H = 450, 144  # same height as the boot log
 SCALE = 2
 TOP_LANGS = 7
 
@@ -84,14 +84,19 @@ langs = re.findall(
     r'<span class="lang">([^<]+)</span>\s*<span class="percent">([\d.]+)%</span>',
     LANGUAGES.read_text(encoding="utf-8"),
 )
-langs = [(name, float(p)) for name, p in langs][:TOP_LANGS]
+all_langs = [(name, float(p)) for name, p in langs]
+langs = all_langs[:TOP_LANGS]
+rest = sum(p for _, p in all_langs[TOP_LANGS:])
+if rest >= 0.05:
+    langs.append(("OTHERS", rest))
+rows = list(zip(LABELS, values)) + [("LANGUAGES USED", str(len(all_langs)))]
 
 # --- panels (same chrome as boot.py) ---------------------------------------
 
 GAP = 8
 BOX = (W - GAP) // 2
 LY, STEP = 22, 15
-SPAN = (TOP_LANGS - 1) * STEP  # both boxes spread their rows over this height
+SPAN = (len(langs) - 1) * STEP  # both boxes spread their rows over this height
 
 
 def box(x0, title):
@@ -110,8 +115,8 @@ idx = np.zeros((H, W), np.uint8)
 
 # left: overview
 box(0, "BYNGUTS.STATS")
-for i, (label, value) in enumerate(zip(LABELS, values)):
-    y = LY + round(i * SPAN / (len(LABELS) - 1))
+for i, (label, value) in enumerate(rows):
+    y = LY + round(i * SPAN / (len(rows) - 1))
     x = text(idx, label, 10, y, BONE)
     vx = BOX - 10 - width(value)
     leader(idx, y, x, vx)
