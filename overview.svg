@@ -69,13 +69,13 @@ svg { font-family: "Mono", ui-monospace, monospace; }
 <g class="row" style="animation-delay: 240ms">
   <svg x="18" y="92" width="14" height="14" viewBox="0 0 16 16"><path class="icon" d="M11.93 8.5a4.002 4.002 0 01-7.86 0H.75a.75.75 0 010-1.5h3.32a4.002 4.002 0 017.86 0h3.32a.75.75 0 010 1.5h-3.32zM8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></svg>
   <text x="40" y="104" class="label">Contributions</text>
-  <text x="340" y="104" class="value" text-anchor="end">1,649</text>
+  <text x="340" y="104" class="value" text-anchor="end">1,651</text>
   <line x1="40" y1="111.5" x2="340" y2="111.5" stroke="#450a0a" stroke-width="1" stroke-dasharray="2 4"/>
 </g>
 <g class="row" style="animation-delay: 360ms">
   <svg x="18" y="117" width="14" height="14" viewBox="0 0 16 16"><path class="icon" d="M8.75 1.75a.75.75 0 00-1.5 0V5H4a.75.75 0 000 1.5h3.25v3.25a.75.75 0 001.5 0V6.5H12A.75.75 0 0012 5H8.75V1.75zM4 13a.75.75 0 000 1.5h8a.75.75 0 100-1.5H4z"/></svg>
   <text x="40" y="129" class="label">Lines changed</text>
-  <text x="340" y="129" class="value" text-anchor="end">3,925,396</text>
+  <text x="340" y="129" class="value" text-anchor="end">3,925,413</text>
   <line x1="40" y1="136.5" x2="340" y2="136.5" stroke="#450a0a" stroke-width="1" stroke-dasharray="2 4"/>
 </g>
 <g class="row" style="animation-delay: 480ms">
