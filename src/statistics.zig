@@ -597,6 +597,12 @@ fn getLinesChanged(
         }
         switch (try item.repo.getLinesChanged(arena, client, self.user)) {
             .ok => {},
+            // GitHub answers 204 for repos with no commit data (e.g. empty
+            // repos), so there are no lines changed to count
+            .no_content => std.log.info(
+                "No contribution data for {s}, counting 0 lines changed",
+                .{item.repo.name},
+            ),
             // If we're hitting rate limits on this API, just clone the repo
             // locally to compute lines changed
             // https://docs.github.com/en/rest/using-the-rest-api/troubleshooting-the-rest-api?apiVersion=2026-03-10#rate-limit-errors

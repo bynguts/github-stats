@@ -60,6 +60,8 @@ jobs:
     - name: Publish images to profile repo
       # This repo is private, so the profile README can't load images from
       # it. Mirror them to a single-commit `stats` branch of the public repo.
+      # Runs even if generation failed, so the last good images still publish.
+      if: ${{ !cancelled() }}
       run: |
         set +x
         out="$(mktemp -d)"
