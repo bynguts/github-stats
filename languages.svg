@@ -89,40 +89,40 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
 <span class="progress">
 <span style="
   background-color: #00ADD8; 
-  width: 51.572%;
+  width: 51.180%;
 " class="progress-item"></span><span style="
   background-color: #e34c26; 
-  width: 12.243%;
-" class="progress-item"></span><span style="
-  background-color: #f1e05a; 
-  width: 9.114%;
+  width: 12.150%;
 " class="progress-item"></span><span style="
   background-color: #3572A5; 
-  width: 9.106%;
+  width: 9.296%;
+" class="progress-item"></span><span style="
+  background-color: #f1e05a; 
+  width: 9.045%;
 " class="progress-item"></span><span style="
   background-color: #3178c6; 
-  width: 5.976%;
+  width: 6.428%;
 " class="progress-item"></span><span style="
   background-color: #ff3e00; 
-  width: 5.643%;
+  width: 5.600%;
 " class="progress-item"></span><span style="
   background-color: #4F5D95; 
-  width: 3.213%;
+  width: 3.188%;
 " class="progress-item"></span><span style="
   background-color: #663399; 
-  width: 2.063%;
+  width: 2.051%;
 " class="progress-item"></span><span style="
   background-color: #89e051; 
-  width: 0.652%;
+  width: 0.647%;
 " class="progress-item"></span><span style="
   background-color: #ec915c; 
-  width: 0.298%;
+  width: 0.295%;
 " class="progress-item"></span><span style="
   background-color: #427819; 
   width: 0.049%;
 " class="progress-item"></span><span style="
   background-color: #384d54; 
-  width: 0.035%;
+  width: 0.034%;
 " class="progress-item"></span><span style="
   background-color: #012456; 
   width: 0.022%;
@@ -158,7 +158,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">Go</span>
-  <span class="percent">51.57%</span>
+  <span class="percent">51.18%</span>
 </li>
 <li style="animation-delay: 300ms;">
   <svg 
@@ -174,25 +174,9 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">HTML</span>
-  <span class="percent">12.24%</span>
+  <span class="percent">12.15%</span>
 </li>
 <li style="animation-delay: 450ms;">
-  <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      class="octicon"
-      style="fill: #f1e05a;" 
-      viewBox="0 0 16 16" 
-      version="1.1" 
-      width="16" 
-      height="16"
-  ><path 
-      fill-rule="evenodd" 
-      d="M8 4a4 4 0 100 8 4 4 0 000-8z"
-  ></path></svg>
-  <span class="lang">JavaScript</span>
-  <span class="percent">9.11%</span>
-</li>
-<li style="animation-delay: 600ms;">
   <svg 
       xmlns="http://www.w3.org/2000/svg" 
       class="octicon"
@@ -206,7 +190,23 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">Python</span>
-  <span class="percent">9.11%</span>
+  <span class="percent">9.30%</span>
+</li>
+<li style="animation-delay: 600ms;">
+  <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      class="octicon"
+      style="fill: #f1e05a;" 
+      viewBox="0 0 16 16" 
+      version="1.1" 
+      width="16" 
+      height="16"
+  ><path 
+      fill-rule="evenodd" 
+      d="M8 4a4 4 0 100 8 4 4 0 000-8z"
+  ></path></svg>
+  <span class="lang">JavaScript</span>
+  <span class="percent">9.04%</span>
 </li>
 <li style="animation-delay: 750ms;">
   <svg 
@@ -222,7 +222,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">TypeScript</span>
-  <span class="percent">5.98%</span>
+  <span class="percent">6.43%</span>
 </li>
 <li style="animation-delay: 900ms;">
   <svg 
@@ -238,7 +238,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">Svelte</span>
-  <span class="percent">5.64%</span>
+  <span class="percent">5.60%</span>
 </li>
 <li style="animation-delay: 1050ms;">
   <svg 
@@ -254,7 +254,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">PHP</span>
-  <span class="percent">3.21%</span>
+  <span class="percent">3.19%</span>
 </li>
 <li style="animation-delay: 1200ms;">
   <svg 
@@ -270,7 +270,7 @@ li:nth-child(n+8) .octicon { fill: #4a1515 !important; }
       d="M8 4a4 4 0 100 8 4 4 0 000-8z"
   ></path></svg>
   <span class="lang">CSS</span>
-  <span class="percent">2.06%</span>
+  <span class="percent">2.05%</span>
 </li>
 <li style="animation-delay: 1350ms;">
   <svg 
