@@ -66,22 +66,33 @@ jobs:
         mkdir -p "$theme/fonts"
         git show master:theme/render_card.py > "$theme/render_card.py"
         for f in Silkscreen-Regular Silkscreen-Bold; do
-          curl -sfL -o "$theme/fonts/$f.ttf" "https://github.com/google/fonts/raw/main/ofl/silkscreen/$f.ttf"
+          curl -sfL --retry 5 --retry-all-errors --retry-delay 10 \
+            -o "$theme/fonts/$f.ttf" "https://github.com/google/fonts/raw/main/ofl/silkscreen/$f.ttf"
         done
         python3 -m venv "$RUNNER_TEMP/venv"
         "$RUNNER_TEMP/venv/bin/pip" install --quiet pillow numpy
         "$RUNNER_TEMP/venv/bin/python" "$theme/render_card.py" overview.svg languages.svg "$RUNNER_TEMP/activity.png"
 
     - name: Publish images to profile repo
-      # This repo is private, so the profile README can't load images from
-      # it. Mirror them to a single-commit `stats` branch of the public repo.
+      # Mirror the images to a single-commit `stats` branch of the profile
+      # repo, which the README loads them from.
       # Runs even if generation failed, so the last good images still publish.
+      # The force-push replaces the branch, so a failed render must never
+      # publish without activity.png: reuse the previous one, or skip.
       if: ${{ !cancelled() }}
       run: |
         set +x
         out="$(mktemp -d)"
         cp overview.svg languages.svg "$out/"
-        if [ -f "$RUNNER_TEMP/activity.png" ]; then cp "$RUNNER_TEMP/activity.png" "$out/"; fi
+        prev="https://raw.githubusercontent.com/bynguts/bynguts/stats/activity.png"
+        if [ -f "$RUNNER_TEMP/activity.png" ]; then
+          cp "$RUNNER_TEMP/activity.png" "$out/"
+        elif curl -sfL --retry 5 --retry-all-errors --retry-delay 10 -o "$out/activity.png" "$prev"; then
+          echo "::warning::Render failed; republishing the previous activity.png"
+        else
+          echo "::warning::No activity.png available; leaving the stats branch untouched"
+          exit 0
+        fi
         cd "$out"
         git init -q -b stats
         git add .
