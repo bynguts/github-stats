@@ -69,7 +69,7 @@ svg { font-family: "Mono", ui-monospace, monospace; }
 <g class="row" style="animation-delay: 240ms">
   <svg x="18" y="92" width="14" height="14" viewBox="0 0 16 16"><path class="icon" d="M11.93 8.5a4.002 4.002 0 01-7.86 0H.75a.75.75 0 010-1.5h3.32a4.002 4.002 0 017.86 0h3.32a.75.75 0 010 1.5h-3.32zM8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></svg>
   <text x="40" y="104" class="label">Contributions</text>
-  <text x="340" y="104" class="value" text-anchor="end">4,042</text>
+  <text x="340" y="104" class="value" text-anchor="end">4,044</text>
   <line x1="40" y1="111.5" x2="340" y2="111.5" stroke="#450a0a" stroke-width="1" stroke-dasharray="2 4"/>
 </g>
 <g class="row" style="animation-delay: 360ms">
@@ -81,13 +81,13 @@ svg { font-family: "Mono", ui-monospace, monospace; }
 <g class="row" style="animation-delay: 480ms">
   <svg x="18" y="142" width="14" height="14" viewBox="0 0 16 16"><path class="icon" d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 010 1.798c-.45.678-1.367 1.932-2.637 3.023C11.67 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.83.88 9.576.43 8.898a1.62 1.62 0 010-1.798c.45-.677 1.367-1.931 2.637-3.022C4.33 2.992 6.019 2 8 2zM8 10a2 2 0 100-4 2 2 0 000 4z"/></svg>
   <text x="40" y="154" class="label">Views / 14d</text>
-  <text x="340" y="154" class="value" text-anchor="end">292</text>
+  <text x="340" y="154" class="value" text-anchor="end">291</text>
   <line x1="40" y1="161.5" x2="340" y2="161.5" stroke="#450a0a" stroke-width="1" stroke-dasharray="2 4"/>
 </g>
 <g class="row" style="animation-delay: 600ms">
   <svg x="18" y="167" width="14" height="14" viewBox="0 0 16 16"><path class="icon" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 11-1.072 1.05A2.495 2.495 0 012 11.5v-9z"/></svg>
   <text x="40" y="179" class="label">Repos touched</text>
-  <text x="340" y="179" class="value" text-anchor="end">19</text>
+  <text x="340" y="179" class="value" text-anchor="end">20</text>
   <line x1="40" y1="186.5" x2="340" y2="186.5" stroke="#450a0a" stroke-width="1" stroke-dasharray="2 4"/>
 </g>
 </svg>
